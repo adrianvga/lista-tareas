@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lista de Tareas</h1>
+            <button id="dark-mode-toggle">🌙 Modo Oscuro</button>
+        </header>
+
+        <main>
+            <!-- Formulario para crear tareas -->
+            <form id="task-form">
+                <div class="form-group">
+                    <label for="task-name">Tarea:</label>
+                    <input type="text" id="task-name" placeholder="Añadir tarea" required>
+                </div>
+                <div class="form-group">
+                    <label for="task-deadline">Tiempo límite:</label>
+                    <input type="datetime-local" id="task-deadline" required>
+                </div>
+                <div class="form-group">
+                    <label for="task-priority">Prioridad:</label>
+                    <select id="task-priority">
+                        <option value="alta">Alta</option>
+                        <option value="media">Media</option>
+                        <option value="baja">Baja</option>
+                    </select>
+                </div>
+                <button type="submit">Añadir Tarea</button>
+            </form>
+
+            <!-- Columnas de Prioridad -->
+            <div class="columns">
+                <div class="column" id="alta" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <h2>Prioridad Alta</h2>
+                    <ul id="task-list-alta" class="task-list"></ul>
+                </div>
+
+                <div class="column" id="media" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <h2>Prioridad Media</h2>
+                    <ul id="task-list-media" class="task-list"></ul>
+                </div>
+
+                <div class="column" id="baja" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <h2>Prioridad Baja</h2>
+                    <ul id="task-list-baja" class="task-list"></ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
